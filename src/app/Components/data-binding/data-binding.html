@@ -1,1 +1,191 @@
-<p>data-binding works!</p>
+<!--
+  Angular Data Binding Examples
+
+  Data binding is used to connect the TypeScript component
+  with the HTML template.
+-->
+
+<table border="1" style="width: 100%">
+  <tr>
+    <!-- =========================================
+         INTERPOLATION
+         ========================================= -->
+
+    <td>
+      <!--
+        Interpolation is used to display a variable
+        from the TypeScript file.
+
+        Example:
+        productName = 'Laptop'
+
+        Angular displays: Laptop
+      -->
+      {{ productName }}
+    </td>
+
+    <td>
+      <!-- Display product price using interpolation -->
+      <span>{{ productPrice }}</span>
+    </td>
+
+    <!-- =========================================
+         ATTRIBUTE BINDING
+         ========================================= -->
+
+    <td>
+      <!--
+        Interpolation can also be used inside an HTML attribute.
+
+        The current productName is used as the input value.
+      -->
+      <input type="text" value="{{ productName }}" />
+    </td>
+
+    <!-- =========================================
+         PROPERTY BINDING
+         ========================================= -->
+
+    <td>
+      <!--
+        Property binding uses [ ].
+
+        maxLength is connected to the
+        maxAlloowedChar variable.
+
+        If maxAlloowedChar = 5,
+        the user can enter only 5 characters.
+      -->
+      <input type="text" [maxLength]="maxAlloowedChar" />
+    </td>
+
+    <td>
+      <!--
+        Property binding can also be used
+        to set the value of an input.
+      -->
+      <input type="text" [value]="productName" />
+    </td>
+
+    <td>
+      <!--
+        Dynamic property value.
+
+        The input type comes from the
+        myDynamicType variable.
+
+        Example:
+        myDynamicType = 'text'
+
+        Angular creates:
+        <input type="text">
+      -->
+      <input [type]="myDynamicType" />
+    </td>
+  </tr>
+
+  <br />
+
+  <table>
+    <tr>
+      <!-- =========================================
+           EVENT BINDING
+           ========================================= -->
+
+      <td>
+        <!--
+          Event binding uses ( ).
+
+          When the user clicks the button,
+          showWelcometext() method is called.
+        -->
+        <button (click)="showWelcometext()">Show Welcome</button>
+      </td>
+
+      <td>
+        <!--
+          The change event runs when the
+          selected option is changed.
+        -->
+        <select (change)="onDropdownChange()">
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+          <option value="4">Four</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+
+  <!-- =========================================
+       MOUSE EVENTS
+       ========================================= -->
+
+  <div style="background-color: red; width: 100px; height: 100px">
+    <!--
+      mouseenter runs when the mouse
+      enters the div.
+    -->
+    (mouseenter)="onMouseenter()"
+
+    <!--
+      mouseover runs when the mouse
+      moves over the div.
+    -->
+    (mouseover)="onMouseOver()"
+
+    <!--
+      mouseout runs when the mouse
+      leaves the div.
+    -->
+    (mouseout)="onMouseOut()"
+  </div>
+</table>
+
+<!-- =========================================
+     TWO-WAY DATA BINDING
+     ========================================= -->
+
+<table>
+  <tr>
+    <td>
+      <!--
+        Two-way data binding uses [(ngModel)].
+
+        It connects the HTML input and
+        TypeScript variable together.
+
+        If the user changes the input,
+        productName also changes.
+
+        If productName changes in TypeScript,
+        the input value also changes.
+      -->
+      <input type="text" [(ngModel)]="productName" />
+    </td>
+
+    <td>
+      <!--
+        Two-way binding can also be used
+        with a dropdown.
+
+        The selected value is stored
+        inside productName.
+      -->
+      <select [(ngModel)]="productName">
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+        <option value="4">Four</option>
+      </select>
+    </td>
+  </tr>
+</table>
+
+<!--
+  This displays the current productName.
+
+  Because we are using interpolation,
+  the value updates when productName changes.
+-->
+<p>Selected Product Name: {{ productName }}</p>
