@@ -1,10 +1,8 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Variables } from './Components/variables/variables';
-import { DataBinding } from './Components/data-binding/data-binding';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
-  imports: [RouterOutlet, Variables, DataBinding],
+  imports: [RouterLink, RouterOutlet, RouterLinkActive],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
