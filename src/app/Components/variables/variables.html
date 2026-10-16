@@ -1,1 +1,185 @@
-<p>variables works!</p>
+<!--
+  Angular Variables Example
+
+  This HTML file displays the variables
+  created inside variables.ts.
+-->
+
+<!-- =========================================
+     BASIC VARIABLES
+     ========================================= -->
+
+<h2>Student Information</h2>
+
+<!--
+  {{ }} is called interpolation.
+
+  It displays a TypeScript variable
+  inside the HTML.
+-->
+
+<p>Student Name: {{ studentName }}</p>
+
+<p>Roll Number: {{ rollNumber }}</p>
+
+<p>Is Student: {{ isStudent }}</p>
+
+<p>Current Date: {{ currentDate }}</p>
+
+<!-- =========================================
+     TYPE INFERENCE
+     ========================================= -->
+
+<h2>Teacher Information</h2>
+
+<p>Teacher Name: {{ teacherName }}</p>
+
+<!-- =========================================
+     ARRAY OF STRINGS
+     ========================================= -->
+
+<h2>City List</h2>
+
+<!--
+  @for repeats the HTML for every item
+  inside cityList.
+-->
+<ul>
+  @for (city of cityList; track $index) {
+    <li>
+      {{ city }}
+    </li>
+  }
+</ul>
+
+<!-- =========================================
+     ARRAY OF NUMBERS
+     ========================================= -->
+
+<h2>Roll Number List</h2>
+
+<ul>
+  @for (rollNo of rollNoList; track $index) {
+    <li>
+      {{ rollNo }}
+    </li>
+  }
+</ul>
+
+<!-- =========================================
+     OBJECT
+     ========================================= -->
+
+<h2>Single Student Object</h2>
+
+<p>Name: {{ student.studentName }}</p>
+
+<p>Roll Number: {{ student.rollNumber }}</p>
+
+<p>Is Student: {{ student.isStudent }}</p>
+
+<p>Date: {{ student.currentDate }}</p>
+
+<!-- =========================================
+     ARRAY OF OBJECTS
+     ========================================= -->
+
+<h2>Student List</h2>
+
+<table border="1" style="width: 100%">
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Roll Number</th>
+      <th>Is Student</th>
+      <th>Current Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <!--
+      Loop through studentList.
+
+      'student' represents the current
+      student object.
+    -->
+    @for (student of studentList; track $index) {
+      <tr>
+        <td>
+          {{ student.studentName }}
+        </td>
+
+        <td>
+          {{ student.rollNumber }}
+        </td>
+
+        <td>
+          {{ student.isStudent }}
+        </td>
+
+        <td>
+          {{ student.currentDate }}
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<!-- =========================================
+     ANY TYPE
+     ========================================= -->
+
+<h2>Any Type</h2>
+
+<p>Any Value: {{ anyValue }}</p>
+
+<!-- =========================================
+     UNION TYPE
+     ========================================= -->
+
+<h2>Union Type</h2>
+
+<p>Student ID: {{ studentId }}</p>
+
+<!-- =========================================
+     OPTIONAL VARIABLE
+     ========================================= -->
+
+<h2>Optional Variable</h2>
+
+<p>Email: {{ email }}</p>
+
+<!-- =========================================
+     READONLY VARIABLE
+     ========================================= -->
+
+<h2>Readonly Variable</h2>
+
+<p>College Name: {{ collegeName }}</p>
+
+<!-- =========================================
+     METHODS / FUNCTIONS
+     ========================================= -->
+
+<h2>Methods</h2>
+
+<!--
+  Clicking this button calls the
+  changeStudentName() method.
+-->
+<button (click)="changeStudentName()">Change Student Name</button>
+
+<!--
+  Clicking this button calls the
+  showStudentDetails() method.
+-->
+<button (click)="showStudentDetails()">Show Student Details</button>
+
+<!--
+  This value changes when
+  changeStudentName() is called.
+-->
+<p>
+  Current Student Name:
+  {{ studentName }}
+</p>

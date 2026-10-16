@@ -1,8 +1,28 @@
 
-<router-outlet>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<!--
+  Navigation bar
+
+  This navbar is always visible.
+  The router-outlet below will display
+  the selected component.
+-->
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
   <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+
+    <!--
+      Website / application name.
+    -->
+    <a class="navbar-brand" routerLink="/">
+      Logo
+    </a>
+
+
+    <!--
+      Button used to open and close
+      the navigation menu on small screens.
+    -->
     <button
       class="navbar-toggler"
       type="button"
@@ -11,23 +31,168 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="mynavbar">
+
+
+    <!--
+      Navigation menu.
+    -->
+    <div
+      class="collapse navbar-collapse"
+      id="mynavbar"
+    >
+
       <ul class="navbar-nav me-auto">
-        <li class="nav-item" style="margin-top: -12px">
-          <a class="nav-link active" routerLinkActive="active" routerLink="variables">variables</a>
+
+
+        <!-- =====================================
+             VARIABLES ROUTE
+             ===================================== -->
+
+        <li class="nav-item">
+
+          <!--
+            routerLink navigates to the
+            Variables component.
+
+            URL:
+            /variables
+          -->
+          <a
+            class="nav-link"
+            routerLink="/variables"
+            routerLinkActive="active"
+          >
+            Variables
+          </a>
+
         </li>
-        <li class="nav-item" style="margin-top: -12px">
-          <a class="nav-link" routerLinkActive="active"  routerLink="dataBinding" >data-binding</a>
+
+
+        <!-- =====================================
+             DATA BINDING ROUTE
+             ===================================== -->
+
+        <li class="nav-item">
+
+          <!--
+            Navigates to the DataBinding component.
+
+            URL:
+            /dataBinding
+          -->
+          <a
+            class="nav-link"
+            routerLink="/dataBinding"
+            routerLinkActive="active"
+          >
+            Data Binding
+          </a>
+
         </li>
-        <li class="nav-item" style="margin-top: -12px">
-          <a class="nav-link" routerLinkActive="active" routerLink="directives" >directives</a>
+
+
+        <!-- =====================================
+             DIRECTIVES ROUTE
+             ===================================== -->
+
+        <li class="nav-item">
+
+          <!--
+            Navigates to the DirectiveExp component.
+
+            URL:
+            /directives
+          -->
+          <a
+            class="nav-link"
+            routerLink="/directives"
+            routerLinkActive="active"
+          >
+            Directives
+          </a>
+
         </li>
+
+
+        <!-- =====================================
+             CONTROL FLOW ROUTE
+             ===================================== -->
+
+        <li class="nav-item">
+
+          <!--
+            Navigates to the ControlFlow component.
+
+            URL:
+            /controlFlow
+          -->
+          <a
+            class="nav-link"
+            routerLink="/controlFlow"
+            routerLinkActive="active"
+          >
+            Control Flow
+          </a>
+
+        </li>
+
       </ul>
+
+
+      <!-- =====================================
+           SEARCH FORM
+           ===================================== -->
+
       <form class="d-flex">
-        <input class="form-control me-2" type="text" placeholder="Search" />
-        <button class="btn btn-primary" type="button">Search</button>
+
+        <!-- Search input -->
+        <input
+          class="form-control me-2"
+          type="text"
+          placeholder="Search"
+        />
+
+        <!-- Search button -->
+        <button
+          class="btn btn-primary"
+          type="button"
+        >
+          Search
+        </button>
+
       </form>
+
     </div>
+
   </div>
+
 </nav>
-</router-outlet>
+
+
+<!-- =========================================
+     ROUTER OUTLET
+     ========================================= -->
+
+<!--
+  router-outlet is the place where Angular
+  displays the component for the current route.
+
+  Example:
+
+  /variables
+      ↓
+  Variables component
+
+  /dataBinding
+      ↓
+  DataBinding component
+
+  /directives
+      ↓
+  DirectiveExp component
+
+  /controlFlow
+      ↓
+  ControlFlow component
+-->
+<router-outlet></router-outlet>

@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 
 @Component({
-  // Components can import other Angular components, directives, or pipes here.
+  // Components can import other Angular components,
+  // directives, or pipes here.
   imports: [],
 
-  // This is the custom HTML tag used to display this component.
+  // Custom HTML tag for this component.
   selector: 'app-variables',
 
   // CSS file used to style this component.
   styleUrl: './variables.css',
 
-  // HTML file used as the template for this component.
+  // HTML template used by this component.
   templateUrl: './variables.html',
 })
 export class Variables {
@@ -21,7 +22,7 @@ export class Variables {
   // string variable - stores text.
   studentName: string = 'John Doe';
 
-  // number variable - stores numbers.
+  // number variable - stores a number.
   rollNumber: number = 12345;
 
   // boolean variable - stores true or false.
@@ -34,8 +35,8 @@ export class Variables {
   // TYPE INFERENCE
   // ==============================
 
-  // TypeScript automatically understands this as a string.
-  // We do not need to write : string here.
+  // TypeScript automatically understands
+  // this variable as a string.
   teacherName = 'Jane Smith';
 
   // ==============================
@@ -52,8 +53,9 @@ export class Variables {
   // OBJECT
   // ==============================
 
-  // This variable contains multiple values inside one object.
-  constudent = {
+  // An object can contain multiple
+  // related values.
+  student = {
     studentName: 'Alice',
     rollNumber: 67890,
     isStudent: true,
@@ -64,7 +66,8 @@ export class Variables {
   // ARRAY OF OBJECTS
   // ==============================
 
-  // This is an array containing multiple student objects.
+  // An array containing multiple
+  // student objects.
   studentList = [
     {
       studentName: 'Bob',
@@ -92,32 +95,39 @@ export class Variables {
   // ANY TYPE
   // ==============================
 
-  // 'any' allows the variable to contain any type of value.
-  // It can be a string, number, boolean, object, etc.
-  // It should be avoided when possible because TypeScript
-  // cannot properly check the variable type.
+  // 'any' allows different types of values.
+  //
+  // It can store a string, number, boolean,
+  // object, etc.
+  //
+  // It should be avoided when possible
+  // because TypeScript cannot properly
+  // check the type.
   anyValue: any = 'Hello';
 
   // ==============================
   // UNION TYPE
   // ==============================
 
-  // This variable can contain either a string OR a number.
+  // This variable can contain either
+  // a string OR a number.
   studentId: string | number = 1001;
 
   // ==============================
   // OPTIONAL VARIABLE
   // ==============================
 
-  // The ? means this variable is optional.
-  // It can contain a string or it can be undefined.
+  // The ? means this property is optional.
+  //
+  // It can contain a string or be undefined.
   email?: string;
 
   // ==============================
   // READONLY VARIABLE
   // ==============================
 
-  // readonly means the value cannot be changed after initialization.
+  // readonly means the value cannot be
+  // changed after initialization.
   readonly collegeName: string = 'Sri Lanka Technology Campus';
 
   // ==============================
@@ -125,19 +135,19 @@ export class Variables {
   // ==============================
 
   constructor() {
-    // This message is printed when the component is created.
+    // Runs when the component is created.
     console.log('Variables component initialized');
 
-    // Display the student object in the browser console.
-    console.log(this.constudent);
+    // Display the student object.
+    console.log(this.student);
 
-    // Display the student list in the browser console.
+    // Display the student list.
     console.log(this.studentList);
 
     // Display the student name.
     console.log(this.studentName);
 
-    // Change the value of studentName.
+    // Change the student name.
     this.studentName = 'Tharuka Name';
 
     // Display the updated student name.
@@ -155,11 +165,19 @@ export class Variables {
     console.log('Student name changed:', this.studentName);
   }
 
-  // This method displays student information.
+  // ==============================
+  // DISPLAY STUDENT DETAILS
+  // ==============================
+
+  // This method displays student information
+  // in the browser console.
   showStudentDetails(): void {
     console.log('Student Name:', this.studentName);
+
     console.log('Roll Number:', this.rollNumber);
+
     console.log('Is Student:', this.isStudent);
+
     console.log('Current Date:', this.currentDate);
   }
 }

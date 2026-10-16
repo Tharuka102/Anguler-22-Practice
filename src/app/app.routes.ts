@@ -10,6 +10,7 @@ import { DirectiveExp } from './Components/directive-exp/directive-exp';
 import { DataBinding } from './Components/data-binding/data-binding';
 import { Variables } from './Components/variables/variables';
 import { NotFound } from './Components/not-found/not-found';
+import { ControlFlow } from './Components/control-flow/control-flow';
 
 // Define all application routes.
 export const routes: Routes = [
@@ -53,6 +54,11 @@ export const routes: Routes = [
   {
     path: 'directives',
     component: DirectiveExp
+  },
+
+  {
+    path: 'controlFlow',
+    component: ControlFlow
   },
 
 

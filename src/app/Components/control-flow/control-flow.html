@@ -1,0 +1,287 @@
+
+<!--
+  Angular Control Flow Examples
+
+  This file demonstrates:
+  1. @if
+  2. @else
+  3. @else if
+  4. @for
+  5. $index
+  6. Two-way data binding with ngModel
+-->
+
+
+<!-- =========================================
+     @IF - CONDITIONAL DISPLAY
+     ========================================= -->
+
+<div class="row">
+
+  <div class="col-3">
+
+    <!--
+      @if is used to display HTML
+      only when the condition is true.
+
+      If isDiv1Visible is true,
+      Div 1 will be displayed.
+    -->
+    @if (isDiv1Visible) {
+
+      <div class="bg-primary p-4">
+        Div 1
+      </div>
+
+    }
+
+  </div>
+
+
+  <!-- =========================================
+       @IF / @ELSE
+       ========================================= -->
+
+  <div class="col-3">
+
+    <!--
+      ngModel connects the checkbox
+      with the isOffer variable.
+
+      Checked  -> isOffer = true
+      Unchecked -> isOffer = false
+    -->
+    <input
+      type="checkbox"
+      [(ngModel)]="isOffer"
+    />
+
+    Its offer code available
+
+
+    <!--
+      If isOffer is true,
+      show the offer code input.
+
+      Otherwise, show the message
+      "No offer code available".
+    -->
+    @if (isOffer) {
+
+      <input
+        type="text"
+        placeholder="Enter offer code"
+      />
+
+    } @else {
+
+      <p>No offer code available</p>
+
+    }
+
+  </div>
+
+
+  <!-- =========================================
+       @IF / @ELSE IF / @ELSE
+       ========================================= -->
+
+  <div class="col-3">
+
+    <!--
+      Multiple conditions can be checked
+      using @else if.
+
+      orderStatus = 'new'
+      -> Order Placed
+
+      orderStatus = 'shi'
+      -> Order In Shipping
+
+      orderStatus = 'del'
+      -> Order Delivered
+
+      Any other value
+      -> Order Failed
+    -->
+
+    @if (orderStatus == 'new') {
+
+      <h3>Order Placed</h3>
+
+    } @else if (orderStatus == 'shi') {
+
+      <h3>Order In Shipping</h3>
+
+    } @else if (orderStatus == 'del') {
+
+      <h3>Order Delivered</h3>
+
+    } @else {
+
+      <h3 class="text-danger">
+        Order Failed
+      </h3>
+
+    }
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     TOGGLE DIV
+     ========================================= -->
+
+<div>
+
+  <div class="col-3">
+
+    <!--
+      Clicking this button calls toggleDiv1().
+
+      The method changes isDiv1Visible
+      from true to false or false to true.
+    -->
+    <button
+      class="btn btn-warning"
+      (click)="toggleDiv1()"
+    >
+      Toggle Div 1
+    </button>
+
+    <!--
+      Display the current value of
+      isDiv1Visible.
+    -->
+    {{ isDiv1Visible }}
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     @FOR - DISPLAY ARRAY DATA
+     ========================================= -->
+
+<div class="row">
+
+  <!-- =========================================
+       DISPLAY CITY LIST AS A LIST
+       ========================================= -->
+
+  <div class="col-3">
+
+    <ul>
+
+      <!--
+        @for is used to repeat HTML
+        for every item in an array.
+
+        cityList contains city names.
+
+        $index gives the current item index.
+      -->
+      @for (item of cityList; track $index) {
+
+        <li>
+          {{ item }}
+        </li>
+
+      }
+
+    </ul>
+
+  </div>
+
+
+  <!-- =========================================
+       DISPLAY CITY LIST AS DIVS
+       ========================================= -->
+
+  <div class="col-3">
+
+    @for (item of cityList; track $index) {
+
+      <!--
+        This div is created for every
+        city in cityList.
+      -->
+      <div class="bg-primary p-2 m-2">
+        {{ item }}
+      </div>
+
+    }
+
+  </div>
+
+
+  <!-- =========================================
+       @FOR WITH OBJECT ARRAY
+       ========================================= -->
+
+  <div class="col-6">
+
+    <table class="table table-bordered table-striped">
+
+      <thead>
+
+        <tr>
+          <th>Sr No</th>
+          <th>Name</th>
+          <th>City</th>
+          <th>Roll No</th>
+        </tr>
+
+      </thead>
+
+
+      <tbody>
+
+        <!--
+          studentList contains multiple objects.
+
+          @for repeats the <tr> for every student.
+
+          $index gives the current index.
+        -->
+        @for (student of studentList; track $index) {
+
+          <tr>
+
+            <!--
+              $index starts from 0.
+
+              Adding 1 makes the serial number
+              start from 1.
+            -->
+            <td>
+              {{ $index + 1 }}
+            </td>
+
+            <td>
+              {{ student.name }}
+            </td>
+
+            <td>
+              {{ student.city }}
+            </td>
+
+            <td>
+              {{ student.rollNo }}
+            </td>
+
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+```

@@ -1,191 +1,306 @@
+
 <!--
   Angular Data Binding Examples
 
-  Data binding is used to connect the TypeScript component
+  Data binding connects the TypeScript component
   with the HTML template.
 -->
 
+
+<!-- =========================================
+     INTERPOLATION
+     ========================================= -->
+
 <table border="1" style="width: 100%">
+
   <tr>
-    <!-- =========================================
-         INTERPOLATION
-         ========================================= -->
 
     <td>
+
       <!--
-        Interpolation is used to display a variable
-        from the TypeScript file.
+        Interpolation uses {{ }}.
 
-        Example:
-        productName = 'Laptop'
-
-        Angular displays: Laptop
+        It displays a TypeScript variable
+        inside the HTML.
       -->
       {{ productName }}
+
     </td>
+
 
     <td>
-      <!-- Display product price using interpolation -->
-      <span>{{ productPrice }}</span>
+
+      <!--
+        Display product price using
+        interpolation.
+      -->
+      <span>
+        {{ productPrice }}
+      </span>
+
     </td>
 
+
     <!-- =========================================
-         ATTRIBUTE BINDING
+         ATTRIBUTE / INTERPOLATION
          ========================================= -->
 
     <td>
-      <!--
-        Interpolation can also be used inside an HTML attribute.
 
-        The current productName is used as the input value.
+      <!--
+        The value attribute receives
+        the productName using interpolation.
       -->
-      <input type="text" value="{{ productName }}" />
+      <input
+        type="text"
+        value="{{ productName }}"
+      />
+
     </td>
+
 
     <!-- =========================================
          PROPERTY BINDING
          ========================================= -->
 
     <td>
+
       <!--
         Property binding uses [ ].
 
-        maxLength is connected to the
-        maxAlloowedChar variable.
+        maxLength is connected to
+        maxAlloowedChar.
 
         If maxAlloowedChar = 5,
-        the user can enter only 5 characters.
+        the input allows 5 characters.
       -->
-      <input type="text" [maxLength]="maxAlloowedChar" />
+      <input
+        type="text"
+        [maxLength]="maxAlloowedChar"
+      />
+
     </td>
+
 
     <td>
+
       <!--
-        Property binding can also be used
-        to set the value of an input.
+        Property binding can set
+        the input value.
       -->
-      <input type="text" [value]="productName" />
+      <input
+        type="text"
+        [value]="productName"
+      />
+
     </td>
+
 
     <td>
+
       <!--
-        Dynamic property value.
+        Dynamic property binding.
 
-        The input type comes from the
-        myDynamicType variable.
-
-        Example:
-        myDynamicType = 'text'
-
-        Angular creates:
-        <input type="text">
+        The input type comes from
+        the myDynamicType variable.
       -->
-      <input [type]="myDynamicType" />
+      <input
+        [type]="myDynamicType"
+      />
+
     </td>
+
   </tr>
 
-  <br />
 
-  <table>
-    <tr>
-      <!-- =========================================
-           EVENT BINDING
-           ========================================= -->
+  <!-- =========================================
+       EVENT BINDING
+       ========================================= -->
 
-      <td>
-        <!--
-          Event binding uses ( ).
+  <tr>
 
-          When the user clicks the button,
-          showWelcometext() method is called.
-        -->
-        <button (click)="showWelcometext()">Show Welcome</button>
-      </td>
+    <td>
 
-      <td>
-        <!--
-          The change event runs when the
-          selected option is changed.
-        -->
-        <select (change)="onDropdownChange()">
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-          <option value="4">Four</option>
-        </select>
-      </td>
-    </tr>
-  </table>
+      <!--
+        Event binding uses ( ).
+
+        When the button is clicked,
+        showWelcometext() is called.
+      -->
+      <button
+        (click)="showWelcometext()"
+      >
+        Show Welcome
+      </button>
+
+    </td>
+
+
+    <td>
+
+      <!--
+        The change event runs when
+        the selected option changes.
+      -->
+      <select
+        (change)="onDropdownChange()"
+      >
+
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+        <option value="4">Four</option>
+
+      </select>
+
+    </td>
+
+  </tr>
+
 
   <!-- =========================================
        MOUSE EVENTS
        ========================================= -->
 
-  <div style="background-color: red; width: 100px; height: 100px">
-    <!--
-      mouseenter runs when the mouse
-      enters the div.
-    -->
-    (mouseenter)="onMouseenter()"
+  <tr>
 
-    <!--
-      mouseover runs when the mouse
-      moves over the div.
-    -->
-    (mouseover)="onMouseOver()"
+    <td colspan="6">
 
-    <!--
-      mouseout runs when the mouse
-      leaves the div.
-    -->
-    (mouseout)="onMouseOut()"
-  </div>
+      <!--
+        Mouse events must be written
+        as attributes of the div.
+
+        mouseenter:
+        Runs when the mouse enters the div.
+
+        mouseover:
+        Runs when the mouse moves over the div.
+
+        mouseout:
+        Runs when the mouse leaves the div.
+      -->
+      <div
+        style="
+          background-color: red;
+          width: 100px;
+          height: 100px;
+        "
+        (mouseenter)="onMouseenter()"
+        (mouseover)="onMouseOver()"
+        (mouseout)="onMouseOut()"
+      >
+      </div>
+
+    </td>
+
+  </tr>
+
 </table>
+
 
 <!-- =========================================
      TWO-WAY DATA BINDING
      ========================================= -->
 
-<table>
+<table border="1" style="width: 100%">
+
   <tr>
+
     <td>
+
       <!--
         Two-way data binding uses [(ngModel)].
 
-        It connects the HTML input and
-        TypeScript variable together.
+        It connects the HTML input
+        and TypeScript variable.
 
-        If the user changes the input,
-        productName also changes.
-
-        If productName changes in TypeScript,
-        the input value also changes.
+        HTML -> TypeScript
+        TypeScript -> HTML
       -->
-      <input type="text" [(ngModel)]="productName" />
+      <input
+        type="text"
+        [(ngModel)]="productName"
+      />
+
     </td>
 
+
     <td>
+
       <!--
-        Two-way binding can also be used
-        with a dropdown.
+        Two-way binding can also be
+        used with a select element.
 
         The selected value is stored
         inside productName.
       -->
-      <select [(ngModel)]="productName">
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-        <option value="4">Four</option>
+      <select
+        [(ngModel)]="productName"
+      >
+
+        <option value="One">One</option>
+        <option value="Two">Two</option>
+        <option value="Three">Three</option>
+        <option value="Four">Four</option>
+
       </select>
+
     </td>
+
   </tr>
+
 </table>
 
-<!--
-  This displays the current productName.
 
-  Because we are using interpolation,
-  the value updates when productName changes.
+<!-- =========================================
+     DISPLAY UPDATED VALUE
+     ========================================= -->
+
+<!--
+  This value automatically updates
+  when productName changes.
 -->
-<p>Selected Product Name: {{ productName }}</p>
+<p>
+  Selected Product Name:
+  {{ productName }}
+</p>
+
+
+<!-- =========================================
+     METHODS / FUNCTIONS
+     ========================================= -->
+
+<!--
+  This button calls the
+  changeProductName() method.
+-->
+<button
+  (click)="changeProductName()"
+>
+  Change Product Name
+</button>
+
+
+<!--
+  This button calls the
+  changeProductPrice() method.
+-->
+<button
+  (click)="changeProductPrice()"
+>
+  Change Product Price
+</button>
+
+
+<!--
+  Display the current values.
+-->
+<p>
+  Current Product:
+  {{ productName }}
+</p>
+
+<p>
+  Current Price:
+  {{ productPrice }}
+</p>
